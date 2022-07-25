@@ -1,0 +1,172 @@
+{
+  "expenses": [
+    {
+      "id": 3,
+      "description": "Restaurante",
+      "category": "Alimentação",
+      "value": 100.44
+    },
+    {
+      "id": 4,
+      "description": "Gasolina",
+      "category": "Transporte",
+      "value": 201.13
+    },
+    {
+      "id": 5,
+      "description": "Padaria",
+      "category": "Alimentação",
+      "value": 15.96
+    },
+    {
+      "id": 6,
+      "description": "Consulta médica",
+      "category": "Saúde",
+      "value": 280.3
+    },
+    {
+      "id": 7,
+      "description": "Clube",
+      "category": "Lazer",
+      "value": 120.19
+    },
+    {
+      "id": 8,
+      "description": "Restaurante",
+      "category": "Alimentação",
+      "value": 21.39
+    },
+    {
+      "id": 9,
+      "description": "Academia",
+      "category": "Saúde",
+      "value": 52.4
+    },
+    {
+      "id": 10,
+      "description": "Compra no IFood",
+      "category": "Alimentação",
+      "value": 24.83
+    },
+    {
+      "id": 11,
+      "description": "Compra no shopping",
+      "category": "Lazer",
+      "value": 215.84
+    },
+    {
+      "id": 12,
+      "description": "Gasolina",
+      "category": "Transporte",
+      "value": 123.38
+    },
+    {
+      "id": 13,
+      "description": "Restaurante",
+      "category": "Alimentação",
+      "value": 52.7
+    },
+    {
+      "id": 14,
+      "description": "Restaurante",
+      "category": "Alimentação",
+      "value": 98.45
+    },
+    {
+      "id": 15,
+      "description": "Gasolina",
+      "category": "Transporte",
+      "value": 76.55
+    },
+    {
+      "id": 16,
+      "description": "Padaria",
+      "category": "Alimentação",
+      "value": 18.96
+    },
+    {
+      "id": 17,
+      "description": "Restaurante",
+      "category": "Alimentação",
+      "value": 92.67
+    },
+    {
+      "id": 18,
+      "description": "Cinema",
+      "category": "Lazer",
+      "value": 49.38
+    },
+    {
+      "id": 19,
+      "description": "Conta do buteco",
+      "category": "Lazer",
+      "value": 98.11
+    },
+    {
+      "id": 20,
+      "description": "Padaria",
+      "category": "Alimentação",
+      "value": 16.97
+    },
+    {
+      "id": 21,
+      "description": "Academia",
+      "category": "Saúde",
+      "value": 124.56
+    },
+    {
+      "id": 22,
+      "description": "Farmácia",
+      "category": "Saúde",
+      "value": 108.8
+    },
+    {
+      "id": 23,
+      "description": "Academia",
+      "category": "Saúde",
+      "value": 72.91
+    },
+    {
+      "id": 24,
+      "description": "Padaria",
+      "category": "Alimentação",
+      "value": 22.68
+    },
+    {
+      "id": 25,
+      "description": "Consulta médica",
+      "category": "Saúde",
+      "value": 285.56
+    },
+    {
+      "id": 26,
+      "description": "Gasolina",
+      "category": "Transporte",
+      "value": 118.07
+    },
+    {
+      "id": 27,
+      "description": "Supermercado",
+      "category": "Alimentação",
+      "value": 376.18
+    },
+    {
+      "id": 28,
+      "description": "Aluguel",
+      "category": "Moradia",
+      "value": 1985.26
+    },
+    {
+      "id": 29,
+      "description": "Supermercado",
+      "category": "Alimentação",
+      "value": 258.21
+    },
+    {
+      "id": 30,
+      "description": "Churrasco",
+      "category": "Lazer",
+      "value": 31.21
+    }
+  ]
+}
