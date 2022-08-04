@@ -7,12 +7,6 @@
       "value": 100.44
     },
     {
-      "id": 4,
-      "description": "Gasolina",
-      "category": "Transporte",
-      "value": 201.13
-    },
-    {
       "id": 5,
       "description": "Padaria",
       "category": "Alimentação",
@@ -167,6 +161,42 @@
       "description": "Churrasco",
       "category": "Lazer",
       "value": 31.21
+    },
+    {
+      "description": "teste",
+      "category": "teste",
+      "value": "12.35",
+      "id": 33
+    },
+    {
+      "description": "teste",
+      "category": "teste",
+      "value": "12.35",
+      "id": 34
+    },
+    {
+      "description": "asd",
+      "category": "asd",
+      "value": "12",
+      "id": 35
+    },
+    {
+      "description": "Teste do Luis",
+      "category": "Teste",
+      "value": "2890",
+      "id": 36
+    },
+    {
+      "description": "Bolo de chocolate",
+      "category": "Foods",
+      "value": "45,00",
+      "id": 37
+    },
+    {
+      "description": "Bolo de cenoura",
+      "category": "Foods",
+      "value": "15,00",
+      "id": 38
     }
   ]
 }

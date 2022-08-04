@@ -1,12 +1,23 @@
 <template>
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn
+      color="primary"
+      icon="add"
+      label="New"
+      @click="
+        () => {
+          this.activeForm = true;
+          this.showCards = false;
+        }
+      "
+    />
+  </div>
   <div class="cards" v-if="showCards">
     <div v-for="item in expensesArr" :key="item.id">
       <q-card class="card" flat bordered>
         <q-card-section vertical>
           <q-card-section vertical>
-            <div class="text-bold" @click="getExpenses()">
-              Description: {{ item.description }}
-            </div>
+            <div class="text-bold">Description: {{ item.description }}</div>
             <div class="text-bold">Category: {{ item.category }}</div>
             <div class="text-bold">Value: {{ item.value }}</div>
           </q-card-section>
@@ -21,6 +32,7 @@
                 () => {
                   showCards = false;
                   activeForm = true;
+                  getExpenseById(item.id);
                 }
               "
             />
@@ -38,10 +50,10 @@
   </div>
   <div class="positionForm" v-if="activeForm">
     <div class="q-pa-md confirmationForm" style="min-width: 400px">
-      <q-form @submit="onSubmit" @reset="showForm" class="q-gutter-md">
+      <q-form @submit="onSubmit" @reset="hideForm" class="q-gutter-md">
         <q-input
           filled
-          v-model="name"
+          v-model="description"
           label="Description *"
           hint="Description"
           lazy-rules
@@ -51,7 +63,7 @@
         <q-input
           filled
           v-model="category"
-          label="Category "
+          label="Category *"
           hint="Category"
           lazy-rules
           value="this.val"
@@ -69,19 +81,14 @@
         />
 
         <div>
-          <q-btn
-            label="Submit"
-            type="submit"
-            color="primary"
-            @click="onSubmit"
-          />
+          <q-btn label="Submit" type="submit" color="primary" />
           <q-btn
             label="Cancel"
             type="cancel"
             color="primary"
             flat
             class="q-ml-sm"
-            @click="showForm"
+            @click="hideForm"
           />
         </div>
       </q-form>
@@ -96,49 +103,17 @@ import { ref } from 'vue';
 
 export default {
   name: 'ExpensesPage',
-  setup() {
-    const $q = useQuasar();
-
-    const description = ref(null);
-    const category = ref(null);
-    const valueExpense = ref(null);
-
-    return {
-      description,
-      category,
-      valueExpense,
-
-      onSubmit() {
-        if (
-          description.value === '' ||
-          category.value === '' ||
-          valueExpense.value === ''
-        ) {
-          $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'Fill all the inputs',
-          });
-        } else {
-          $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted',
-          });
-        }
-
-        onclose();
-      },
-    };
-  },
 
   data() {
     return {
       expensesArr: [],
       activeForm: false,
       showCards: true,
+      $q: useQuasar(),
+
+      description: ref(null),
+      category: ref(null),
+      valueExpense: ref(null),
     };
   },
 
@@ -147,6 +122,13 @@ export default {
       const response = await axios.get('http://localhost:3000/expenses');
       console.log(response.data);
       this.expensesArr = response.data;
+    },
+    async getExpenseById(id) {
+      const response = await axios.get(`http://localhost:3000/expenses/${id}`);
+      this.description = response.data.description;
+      this.category = response.data.category;
+      this.valueExpense = response.data.value;
+      return response.data;
     },
     async deleteExpense(id) {
       await axios.delete(`http://localhost:3000/expenses/${id}`);
@@ -161,9 +143,29 @@ export default {
       this.getExpenses();
     },
 
-    showForm() {
+    hideForm() {
       this.activeForm = false;
       this.showCards = true;
+      this.description = null;
+      this.category = null;
+      this.valueExpense = null;
+    },
+
+    onSubmit() {
+      this.addExpense({
+        description: this.description,
+        category: this.category,
+        value: this.valueExpense,
+      });
+
+      this.$q.notify({
+        color: 'green-4',
+        textColor: 'white',
+        icon: 'cloud_done',
+        message: 'Submitted',
+      });
+
+      this.hideForm();
     },
   },
 

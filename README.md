@@ -20,8 +20,10 @@ quasar dev
 
 ```bash
 cd backend
+npm i
 npm run server
 # or
+yarn
 yarn server
 ```
 
