@@ -109,6 +109,7 @@ export default {
       expensesArr: [],
       activeForm: false,
       showCards: true,
+      expenseId: null,
       $q: useQuasar(),
 
       description: ref(null),
@@ -120,7 +121,6 @@ export default {
   methods: {
     async getExpenses() {
       const response = await axios.get('http://localhost:3000/expenses');
-      console.log(response.data);
       this.expensesArr = response.data;
     },
     async getExpenseById(id) {
@@ -128,6 +128,7 @@ export default {
       this.description = response.data.description;
       this.category = response.data.category;
       this.valueExpense = response.data.value;
+      this.expenseId = response.data.id;
       return response.data;
     },
     async deleteExpense(id) {
@@ -152,11 +153,20 @@ export default {
     },
 
     onSubmit() {
-      this.addExpense({
-        description: this.description,
-        category: this.category,
-        value: this.valueExpense,
-      });
+      if (this.expenseId) {
+        this.editExpense({
+          id: this.expenseId,
+          description: this.description,
+          category: this.category,
+          value: this.valueExpense,
+        });
+      } else {
+        this.addExpense({
+          description: this.description,
+          category: this.category,
+          value: this.valueExpense,
+        });
+      }
 
       this.$q.notify({
         color: 'green-4',
@@ -165,6 +175,7 @@ export default {
         message: 'Submitted',
       });
 
+      this.expenseId = null;
       this.hideForm();
     },
   },

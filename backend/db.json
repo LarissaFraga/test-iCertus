@@ -4,7 +4,7 @@
       "id": 3,
       "description": "Restaurante",
       "category": "Alimentação",
-      "value": 100.44
+      "value": "100.45"
     },
     {
       "id": 5,
@@ -193,10 +193,10 @@
       "id": 37
     },
     {
-      "description": "Bolo de cenoura",
+      "id": 38,
+      "description": "Bolo de banana",
       "category": "Foods",
-      "value": "15,00",
-      "id": 38
+      "value": "25,00"
     }
   ]
 }
